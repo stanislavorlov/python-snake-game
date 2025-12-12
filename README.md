@@ -2,7 +2,15 @@
 
 A robust implementation of the classic Snake arcade game built with Python and Pygame using Gemini 3 Pro model. This project features a polished Start Menu, adjustable difficulty settings, sound effects, and a definitive victory condition.
 
+# Framework
+* Python3
+* Gemini 3 Pro
+* pygame
+
 **Developed as a rapid 2-hour coding challenge.**
+
+![Image 12 12 2025 at 21 49](https://github.com/user-attachments/assets/8f02cfc4-7fcb-4f4f-9914-bde12c467778)
+
 
 ## 🎮 Features
 
