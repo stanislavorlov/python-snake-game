@@ -34,3 +34,9 @@ env/
 .DS_Store # macOS
 Thumbs.db # Windows
 
+/misc.xml
+/modules.xml
+/inspectionProfiles/profiles_settings.xml
+/inspectionProfiles/Project_Default.xml
+/python-snake-game.iml
+/vcs.xml
