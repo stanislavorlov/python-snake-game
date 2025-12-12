@@ -2,6 +2,18 @@
 
 A robust implementation of the classic Snake arcade game built with Python and Pygame using Gemini 3 Pro model. This project features a polished Start Menu, adjustable difficulty settings, sound effects, and a definitive victory condition.
 
+## 📝 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+**You are free to:**
+* **Use** the code for commercial or private use.
+* **Modify** the code however you like.
+* **Distribute** copies of the code.
+
+**Under the following condition:**
+* You include the original license file and copyright notice in your project.
+
 # Framework
 * Python3
 * Gemini 3 Pro
@@ -72,3 +84,4 @@ A robust implementation of the classic Snake arcade game built with Python and P
  ┣ 📜 gameover.wav    # (Optional) Audio file
  ┣ 📜 win.wav         # (Optional) Audio file
  ┗ 📜 README.md       # Project documentation
+
