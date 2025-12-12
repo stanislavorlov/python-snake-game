@@ -45,7 +45,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/snake-game.git](https://github.com/your-username/snake-game.git)
+    git clone https://github.com/your-username/snake-game.git
     cd snake-game
     ```
 
