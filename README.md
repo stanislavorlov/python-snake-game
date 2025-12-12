@@ -1,6 +1,6 @@
 # 🐍 Classic Snake Game (Python + Pygame)
 
-A robust implementation of the classic Snake arcade game built with Python and Pygame using Gemini 3 Pro model. This project features a polished Start Menu, adjustable difficulty settings, sound effects, and a definitive victory condition.
+A robust implementation of the classic Snake arcade game built with Python and Pygame using [Gemini 3 Pro model](https://deepmind.google/models/gemini/pro/). This project features a polished Start Menu, adjustable difficulty settings, sound effects, and a definitive victory condition.
 
 ## 📝 License
 
