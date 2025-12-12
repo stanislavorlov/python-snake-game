@@ -12,6 +12,8 @@ BLACK = (0, 0, 0)
 RED = (213, 50, 80)
 GREEN = (0, 255, 0)
 BLUE = (50, 153, 213)
+# --- NEW: Border Color ---
+BORDER_COLOR = (169, 169, 169)  # Dark Gray
 
 # Display settings
 DIS_WIDTH = 600
@@ -25,6 +27,8 @@ clock = pygame.time.Clock()
 # Snake settings
 SNAKE_BLOCK = 10
 SNAKE_SPEED = 15
+# --- NEW: Border Thickness ---
+BORDER_WIDTH = 20
 
 # Fonts
 font_style = pygame.font.SysFont("bahnschrift", 25)
@@ -33,7 +37,7 @@ score_font = pygame.font.SysFont("comicsansms", 35)
 
 def your_score(score):
     value = score_font.render("Your Score: " + str(score), True, YELLOW)
-    dis.blit(value, [0, 0])
+    dis.blit(value, [BORDER_WIDTH, BORDER_WIDTH])  # Moved score slightly inside
 
 
 def our_snake(snake_block, snake_list):
@@ -62,9 +66,9 @@ def gameLoop():
     snake_List = []
     Length_of_snake = 1
 
-    # Place first food
-    foodx = round(random.randrange(0, DIS_WIDTH - SNAKE_BLOCK) / 10.0) * 10.0
-    foody = round(random.randrange(0, DIS_HEIGHT - SNAKE_BLOCK) / 10.0) * 10.0
+    # Ensure food spawns INSIDE the borders (between BORDER_WIDTH and WIDTH - BORDER_WIDTH)
+    foodx = round(random.randrange(BORDER_WIDTH, DIS_WIDTH - BORDER_WIDTH - SNAKE_BLOCK) / 10.0) * 10.0
+    foody = round(random.randrange(BORDER_WIDTH, DIS_HEIGHT - BORDER_WIDTH - SNAKE_BLOCK) / 10.0) * 10.0
 
     while not game_over:
 
@@ -100,8 +104,9 @@ def gameLoop():
                     y1_change = SNAKE_BLOCK
                     x1_change = 0
 
-        # Boundary Check
-        if x1 >= DIS_WIDTH or x1 < 0 or y1 >= DIS_HEIGHT or y1 < 0:
+        # --- CHANGED: Boundary Check ---
+        # Now checks against BORDER_WIDTH instead of 0
+        if x1 >= DIS_WIDTH - BORDER_WIDTH or x1 < BORDER_WIDTH or y1 >= DIS_HEIGHT - BORDER_WIDTH or y1 < BORDER_WIDTH:
             game_close = True
 
         x1 += x1_change
@@ -109,7 +114,10 @@ def gameLoop():
 
         dis.fill(BLACK)
 
-        # Draw Food
+        # --- NEW: Draw the Border ---
+        # Arguments: Surface, Color, [x, y, w, h], thickness
+        pygame.draw.rect(dis, BORDER_COLOR, [0, 0, DIS_WIDTH, DIS_HEIGHT], BORDER_WIDTH)
+
         pygame.draw.rect(dis, RED, [foodx, foody, SNAKE_BLOCK, SNAKE_BLOCK])
 
         # Snake Movement Logic
@@ -133,8 +141,9 @@ def gameLoop():
 
         # Eating Food Logic
         if x1 == foodx and y1 == foody:
-            foodx = round(random.randrange(0, DIS_WIDTH - SNAKE_BLOCK) / 10.0) * 10.0
-            foody = round(random.randrange(0, DIS_HEIGHT - SNAKE_BLOCK) / 10.0) * 10.0
+            # --- CHANGED: Food Respawn Logic ---
+            foodx = round(random.randrange(BORDER_WIDTH, DIS_WIDTH - BORDER_WIDTH - SNAKE_BLOCK) / 10.0) * 10.0
+            foody = round(random.randrange(BORDER_WIDTH, DIS_HEIGHT - BORDER_WIDTH - SNAKE_BLOCK) / 10.0) * 10.0
             Length_of_snake += 1
 
         clock.tick(SNAKE_SPEED)
